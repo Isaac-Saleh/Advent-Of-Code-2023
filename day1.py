@@ -1,4 +1,4 @@
-with open('puzzle_input.txt', 'r') as file:
+with open('puzzle_input_day1.txt', 'r') as file:
     lines = file.readlines()
 
 
@@ -21,6 +21,7 @@ for line in lines:
     value_in_line = find_number_in_line(line)
     total_value = total_value + value_in_line
 print(total_value)
+
 
 """Part 2 Day 1 - Advent of Code"""
 
