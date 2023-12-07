@@ -2,26 +2,25 @@ with open("puzzle_input_day3.txt") as file:
     lines = file.readlines()
 
 def look_for_symbols(si, ei, index):
-    row = grid[index]
-    # for cell in row:
-    if 0 < index < len(grid) - 1 and (ei < len(row)):
-        adjacent_cells = [grid[index - 1][max(0, si - 1): min(ei + 2, len(row))],
-                          grid[index][max(0, si - 1): min(ei + 2, len(row))],
-                          grid[index + 1][max(0, si - 1): min(ei + 2, len(row))]]
+    grid_row = grid[index]
+    if 0 < index < len(grid) - 1 and (ei < len(grid_row)):
+        adjacent_cells = [grid[index - 1][max(0, si - 1): min(ei + 2, len(grid_row))],
+                          grid[index][max(0, si - 1): min(ei + 2, len(grid_row))],
+                          grid[index + 1][max(0, si - 1): min(ei + 2, len(grid_row))]]
         for row_cells in adjacent_cells:
             for cell in row_cells:
                 if not (cell.isdigit() or cell == '.'):
                     return True
     elif index == 0:
-        adjacent_cells = [grid[index][max(0, si - 1): min(ei + 2, len(row))],
-                          grid[index + 1][max(0, si - 1): min(ei + 2, len(row))]]
+        adjacent_cells = [grid[index][max(0, si - 1): min(ei + 2, len(grid_row))],
+                          grid[index + 1][max(0, si - 1): min(ei + 2, len(grid_row))]]
         for row_cells in adjacent_cells:
             for cell in row_cells:
                 if not (cell.isdigit() or cell == '.'):
                     return True
     elif index == len(grid) - 1:
-        adjacent_cells = [grid[index - 1][max(0, si - 1): min(ei + 2, len(row))],
-                  grid[index][max(0, si - 1): min(ei + 2, len(row))]]
+        adjacent_cells = [grid[index - 1][max(0, si - 1): min(ei + 2, len(grid_row))],
+                  grid[index][max(0, si - 1): min(ei + 2, len(grid_row))]]
         for row_cells in adjacent_cells:
             for cell in row_cells:
                 if not (cell.isdigit() or cell == '.'):
